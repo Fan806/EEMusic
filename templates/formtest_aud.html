@@ -1,0 +1,151 @@
+﻿$def with(form)
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Lacendre Radio</title>
+	<link rel="stylesheet" href="/static/css/index.css">
+	<link rel="stylesheet" href="/static/css/base.css">
+	<link rel="stylesheet" href="/static/css/animate.css">
+	<script src="/static/js/indexs.js"></script>
+	<script src="/static/js/jquery-1.11.1.min.js"></script>
+	<script src="/static/js/index.js"></script>
+	<script src="/static/js/base.js"></script>
+	<script src="/static/js/wow.min.js"></script>
+	<script>
+		wow = new WOW(
+{
+	animateClass: 'animated',
+offset:100
+}
+);
+wow.init();
+
+
+	</script>
+
+</head>
+
+
+
+<body>
+	<!-- site-top-nav部分 start-->
+	<div class="site-top-nav" style="height:140px">
+		<div class="w clearfix">
+		<div class="fl top-nav-left" style="margin-top:20px">
+                <font align="center" size="50" face="yu gothic" style="margin-top:20px;margin-right:100px;color:#68838B"> EE MUSIC </font>
+                <a href="#"> <font size="4" face="宋体">首页   |</font></a>
+                <a href="/"><font size="4" face="宋体">文字   |</font></a>
+	        <a href="/img"><font size="4" face="宋体">图片   |</font></a>
+	        <a href="/aud"><font size="4" face="宋体">音频</font></a>
+                <b class="line"></b>
+		</div>
+	</div>
+	<!-- site-top-nav部分 end-->
+
+	<!--search部分 start-->
+    <div style="margin-top:50px;margin-left:50px">
+    <form  action="/a_s" method="GET">
+        <input type="file" name="uploadfile" id="uploadfile" style="height:35px;color:#68838B" value="Browse..." />
+        <button type="submit">上传</button>
+    </form>
+    </div>
+	<!--search部分 end-->
+
+
+
+	<!--轮播图start-->
+	<div class="j-main-slider" id="jMainSlider" style="margin-top:50px">
+		<div class="circle">
+			<ul>
+				<li><img src="/static/images/j_main_slide01.jpg" width="1440"/></li>
+                <li><img src="/static/images/j_main_slide02.jpg" width="1440"/></li>
+				<li><img src="/static/images/j_main_slide03.jpg" width="1440"/></li>
+				<li><img src="/static/images/j_main_slide04.jpg" width="1440"/></li>
+			</ul>
+			<ol></ol>
+		</div>
+		<div class="j-arrow">
+			<a class="arrow-l" id="arrowL"><</a>
+			<a class="arrow-r" id="arrowR">></a>
+		</div>
+	</div>
+	<!--轮播图end-->
+
+
+	<!-- t-flagship-start -->
+	<div class="t-flagship w">
+		<div class="title">
+			<h2>NEW SONGS<br><span>新歌首发</span></h2>
+		</div>
+		<div class="t-shopping-brand clearfix">
+			<ul>
+				<li class="wow slideInDown">
+					<img src="/static/images/t-flag-br1.jpg">
+					<div class="t-shopping-rad">
+						<p>做回自己</p>
+						<p>张靓颖</p>
+					</div>
+				</li>
+				<li class="wow slideInDown" data-wow-delay="0.2s">
+					<img src="/static/images/t-flag-br2.jpg">
+					<div class="t-shopping-rad">
+						<p>张磊的漂泊日记</p>
+						<p>张磊</p>
+					</div>
+				</li>
+				<li  class="wow slideInDown" data-wow-delay="0.4s">
+					<img src="/static/images/t-flag-br3.jpg">
+					<div class="t-shopping-rad">
+						<p>Nothing to lose</p>
+						<p>易烊千玺</p>
+					</div>
+				</li>
+				<li class="wow slideInDown" data-wow-delay="0.6s">
+					<img src="/static/images/t-flag-br4.jpg">
+					<div class="t-shopping-rad">
+						<p>带你一起丢手绢</p>
+						<p>黄渤</p>
+					</div>
+				</li>
+				<li class="wow slideInDown" data-wow-delay="0.8s">
+					<img src="/static/images/t-flag-br5.jpg">
+					<div class="t-shopping-rad">
+						<p>嘴角的甜</p>
+						<p>谭松韵</p>
+					</div>
+				</li>
+			</ul>
+		</div>
+
+
+
+	<!-- t-promot-start -->
+	<div class="t-promot w">
+		<div class="title">
+			<h2>PROMOTION<br><span>热门推荐</span></h2>
+		</div>
+		<div class="t-promot-t clearfix">
+			<a href="javascript:;" class="t-a-imgs wow bounceInDown" data-wow-delay="0.2s"><span><i>你身边还有我<br/>阿里郎</i></span><img src="/static/images/t-promot1.jpg"/></a>
+			<a href="javascript:;" class="t-a-imgs wow bounceInDown" data-wow-delay="0.3s"><span><i>别对我动情<br/>关晓彤</i></span><img src="static/images/t-promot2.jpg"/></a>
+			<a href="javascript:;" class="t-a-imgs wow bounceInDown" data-wow-delay="0.2s"><span><i>新世界<br/>小贱</i></span><img src="static/images/t-promot3.jpg"/></a>
+            <a href="javascript:;" class="t-a-imgs wow bounceInDown" data-wow-delay="0.2s"><span><i>星星照亮回家的路<br/>庞龙</i></span><img src="/static/images/t-promot4.jpg"/></a>
+		</div>
+	</div>
+	<!-- t-promot-end -->
+
+
+	<!-- t-side-start -->
+	<div class="t-side">
+		<div class="t-btn">
+			<span class="t-btn7" id = btn7><i>返回顶部</i></span>
+		</div>
+	</div>
+	<!-- t-side-end -->
+
+	<!-- footerm-top start-->
+	<div style="height:30px;maigin-top:15px;width:100%;background:#96CDCD;text-align:right;margin-right:100px"><font align="right" margin-left="100px">EE MUSIC</font></div>
+    </div>
+</body>
+
+</html>

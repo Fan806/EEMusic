@@ -1,0 +1,198 @@
+$def with (form,que,geshou,geming,zhuanji,imgurl,liupai,shijian,jianjie,geci)
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>搜索结果</title>
+    <link rel="stylesheet" href="/static/css/index.css">
+	<link rel="stylesheet" href="/static/css/base.css">
+	<link rel="stylesheet" href="/static/css/animate.css">
+	<script src="/static/js/indexs.js"></script>
+	<script src="/static/js/jquery-1.11.1.min.js"></script>
+	<script src="/static/js/index.js"></script>
+	<script src="/static/js/base.js"></script>
+	<script src="/static/js/wow.min.js"></script>
+	<script>
+
+    <script language="JavaScript" type="text/javascript" >
+        var total="20";//最大数据量
+        var pagesize="4";//每页的显示量
+        var pagenum=Math.ceil(total/pagesize);//一共有多少页
+
+        //生成导航
+        function initpage(nowpage){
+            var pagenav='<a href="#" onclick=up('+ nowpage+');>上一页</a>';
+            for(i=1;i<=pagenum;i++){
+            pagenav += (i==nowpage)?'<span class="now">' + i + '</span>':'<a class="number" href="#" onclick=goToPage(' + i + ');>' + i + '</a> ';
+         }
+        pagenav += '<a href="#" onclick=down('+ nowpage+');>下一页</a>';
+        document.getElementById('pages').innerHTML=pagenav;
+        }
+
+        //翻页
+        function goToPage(page){
+
+            var start=(page-1)*pagesize;
+            var max=page*pagesize;
+            for(vs=0;vs<total;vs++){
+                var obj=document.getElementById('item_' + vs);
+                obj.style.display="none";
+            }
+            if(max>total)max=total;
+            for(v=start;v<max;v++){
+                var obj=document.getElementById('item_' + v);
+                obj.style.display="block";
+            }
+            initpage(page);
+        }
+
+        //上一页
+        function up(nowpage){
+            if(nowpage==1)return false;
+            if(nowpage>1)goToPage((nowpage-1));
+        }
+
+        //下一页
+        function down(nowpage){
+            if(nowpage==pagenum)return false;
+            if(nowpage<pagenum)goToPage((nowpage+1));
+        }
+
+    </script>
+
+    <style type="text/css">
+        div.blank
+        {
+            height:100px;
+        }
+        div.header
+        {
+            padding:3em;
+            color:black;
+            background-color:white;
+            text-align:center;
+            margin-left:auto;
+            margin-right:auto;
+            font-family:"华文细黑";
+        }
+
+        h1.header
+        {
+            padding:0;
+            margin:0;
+
+        }
+        div.pic{
+            maigin:0;
+            padding:0;
+        }
+
+
+        div.content
+        {
+            margin-left:100px;
+            margin-right:100px;
+            padding:10px;
+            background-color:green:
+            border:1px solid gray;
+        }
+
+        div.container{
+            height:300px;
+            font-family:"幼圆";
+        }
+
+        div.thumb{
+            height:300px;
+            width:180px;
+            float:left;
+        }
+
+
+        div.footer{
+            background-color:#636363;
+            text-align:center;
+            padding:5px;
+        }
+
+        div.pages{
+            text-align:center;
+            padding:20px;
+        }
+
+        .pages a
+        {
+            background-color:#636363;
+            text-decoration: none;
+            border:1px solid #48D1CC;
+            padding: 5px 7px;
+            color: #48D1CC;
+            cursor:pointer;
+        }
+        .pages a:hover
+        {
+            color:#48D1CC;
+        }
+
+
+
+
+    </style>
+</head>
+
+<body onLoad="goToPage(1);">
+    <div class="site-top-nav" style="height:135px">
+		<div class="w clearfix">
+		<div class="fl top-nav-left" style="margin-top:20px">
+                <font align="center" size="50" face="yu gothic" style="margin-top:20px;margin-right:100px;color:#68838B"> EE MUSIC </font>
+                <a href="/"> <font size="4" face="宋体">首页   |</font></a>
+                <a href="/"><font size="4" face="宋体">文字   |</font></a>
+	        <a href="/img"><font size="4" face="宋体">图片   |</font></a>
+	        <a href="/aud"><font size="4" face="宋体">音频</font></a>
+                <b class="line"></b>
+		</div>
+	</div>
+
+    <div class="w search clearfix">
+            <div class="search-input">
+                <form action="/s" method="GET">
+				<input type="text" name="keyword" style="height:38px">
+            	<button type="submit" style="font-family:宋体">搜 索</button>
+			</div>
+   		</div>
+
+
+
+    <div class="header">
+        <h1 class="header"><font color="#36648B" face="宋体" size="4">搜索结果:</font></h1><br>
+        <div class="pic">
+            <img src="static/images/h1-bg.png">
+        </div>
+    </div>
+
+
+    <div class="content">
+        $for i in range(0,len(geming)):
+            <li id="item_$i">
+                <div class="container" style="overflow:hidden">
+                    <div class="thumb">
+                        <img src=$imgurl[i] width="160" height="160"><br>
+                    </div>
+                    <b><font size=5 color="black">$geming[i]</font></b>
+                    <h3><font color="black">歌手：$geshou[i]&nbsp;&nbsp;&nbsp;&nbsp;专辑：$zhuanji[i]</font></h3>
+                    <h3>流派：$liupai[i]&nbsp;&nbsp;&nbsp;&nbsp;发行时间：$shijian[i]</h3>
+                    <h3><font color="#778899" size="3">专辑简介：$jianjie[i]</font></h3>
+                    <h3><font color="#778899" size="3">歌词：$geci[i]</font></h3>
+                </div>
+            </li>
+        </div>
+
+    <div id="pages" class="pages"></div>
+</body>
+
+
+<div class="footer">
+    <h3><font color="#48D1CC">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EE MUSIC</font></h3>
+</div>
+
+
+</html>

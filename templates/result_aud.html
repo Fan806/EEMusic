@@ -1,0 +1,139 @@
+$def with (form,geshou,geming,zhuanji,imgurl,liupai,shijian,jianjie,geci)
+
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>图片搜索结果</title>
+
+    <style type="text/css">
+        div.blank
+        {
+            height:100px;
+        }
+        div.header
+        {
+            padding:3em;
+            color:black;
+            background-color:white;
+            text-align:center;
+            margin-left:auto;
+            margin-right:auto;
+            font-family:"华文细黑";
+        }
+
+        h1.header
+        {
+            padding:0;
+            margin:0;
+
+        }
+        div.pic{
+            maigin:0;
+            padding:0;
+        }
+
+
+        div.content
+        {
+            margin-left:100px;
+            margin-right:100px;
+            padding:10px;
+            background-color:green:
+            border:1px solid gray;
+        }
+
+        div.container{
+            height:300px;
+            font-family:"幼圆";
+        }
+
+        div.thumb{
+            height:300px;
+            width:180px;
+            float:left;
+        }
+
+
+        div.footer{
+            background-color:#636363;
+            text-align:center;
+            padding:5px;
+        }
+
+        div.pages{
+            text-align:center;
+            padding:20px;
+        }
+
+        .pages a
+        {
+            background-color:#636363;
+            text-decoration: none;
+            border:1px solid #48D1CC;
+            padding: 5px 7px;
+            color: #48D1CC;
+            cursor:pointer;
+        }
+        .pages a:hover
+        {
+            color:#48D1CC;
+        }
+
+
+
+
+    </style>
+</head>
+
+<body>
+    <div style="background-color:#EDEDED;margin:0px;height:100px;width:100%">
+                <font align="center" size="50" face="yu gothic" style="margin-top:20px;margin-right:100px;color:#68838B"> EE MUSIC </font>
+                <a href="#"> <font size="4" face="宋体">首页   |</font></a>
+                <a href="/"><font size="4" face="宋体">文字   |</font></a>
+	        <a href="/img"><font size="4" face="宋体">图片   |</font></a>
+	        <a href="/aud"><font size="4" face="宋体">音频</font></a>
+                <b class="line"></b>
+               
+		
+	
+
+    <form  action="/a_s" method="GET">
+        
+        <input type="file" name="uploadfile" id="uploadfile" value="Browse..." />
+        <button type="submit">上传</button>
+    </form>
+    </div>
+
+
+
+    <div class="header">
+        <h1 class="header"><font color="#36648B">The searching results are as follows:</font></h1><br>
+        <div class="pic">
+            <img src="static/images/h1-bg.png">
+        </div>
+    </div>
+
+
+    <div class="content">
+        $for i in range(0,len(geming)):
+                <div class="container">
+                    <div class="thumb">
+                        <img src=$imgurl[i] width="160" height="160"><br>
+                    </div>
+                    <b><font size=5 color="black">$geming[i]</font></b>
+                    <h3><font color="black">歌手：$geshou[i]&nbsp;&nbsp;&nbsp;&nbsp;专辑：$zhuanji[i]</font></h3>
+                    <h3>流派：$liupai[i]&nbsp;&nbsp;&nbsp;&nbsp;发行时间：$shijian[i]</h3>
+                    <h3><font color="#778899" size="3">专辑简介：$jianjie[i]</font></h3>
+                    <h3><font color="#778899" size="3">歌词：$geci[i]</font></h3>
+                </div>
+        </div>
+
+</body>
+
+
+<div class="footer">
+    <h3><font color="#48D1CC">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EE MUSIC</font></h3>
+</div>
+
+
+</html>
